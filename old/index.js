@@ -2,6 +2,7 @@ const fs = require('fs');
 const readline = require('readline');
 const {google} = require('googleapis');
 const { type } = require('os');
+const { get } = require('http');
 
 
 
@@ -88,7 +89,6 @@ function listLabels(auth)
               console.log('error');
           }
           else{
-
               list_ids = res.data.messages;
               for (let i=1; i<=res.data.messages.length-1; i++)
               {
@@ -100,30 +100,38 @@ function listLabels(auth)
     );
 }
 
+
 function get_inbox(all_ids, auth){
-
-  const gmail = google.gmail({version: 'v1', auth});
-  
-  let data = [];
-
-  for (let i of all_ids)
-  {
+  var datas = [];
+  let variable=[];
+  var gmail = google.gmail({version: 'v1', auth});
+ 
+  for(let i=0; i<= all_ids.length-1; i++){
     gmail.users.messages.get(
         {
             userId: 'me',
-            id: i,
-        },(err, res) => {
-            if (err){
+            id: all_ids[i],
+        },
+        (err, res) => 
+        {
+            if (err)
+            {
                 console.log('error');
             }
-            else{
-                console.log(res.data.snippet);
-                // data.push(res.data.snippet);
-              }
-          }
-      )
+            if(res)
+            { 
+                    console.log(typeof(res.data));
+                    variable = res.data.map((datas)=>res.data.snippet);
+                    
+                    // data.push(res.data);
+                    // console.log(res.data.snippet)
+                    // datas.innerHTML = res.data.snippet;
+                    // return res.data.snippet;
+            }
+        } 
+    )
   }
-  console.log(data);
+  console.log(variable);
 }
 
 
