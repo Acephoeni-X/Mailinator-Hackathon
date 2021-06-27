@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Mail</title>
+</head>
+<style>
+    body{
+        height: 100vh;
+        width: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .flow{
+        position:absolute;
+    }
+    .to{
+        margin-right: 27em;
+        margin-bottom: 18.3em;
+        font-weight: bold;
+    }
+    .subject{
+        margin-right: 27em;
+        margin-bottom: 11.5em;
+        font-weight: bold;
+    }
+    .message{
+        margin-right: 27em;
+        margin-bottom: 5em;
+        font-weight: bold;       
+    }
+    .para{
+        margin: 2em;
+    }
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border:1px solid red;
+        min-width: 50rem;
+        height: 30rem;
+    }
+    .button{
+        margin-left: 8rem;
+        width: 5rem;
+        height: 2rem;
+    }
+</style>
+<body>
+    <div class="container">
+        <p class="flow to">To</p>
+        <p class="flow subject">Subject</p>
+        <p class="flow message">Message</p>
+
+        <form action="" method="post">
+            {% csrf_token %}
+                {% for i in form %}
+                    <p class="para">{{ i }}</p>
+                {% endfor %}
+            <input class="button" type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
