@@ -4,37 +4,304 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>inbox</title>
+    <title>Mailinator</title>
+    <link rel="stylesheet" href="./index.css">
 </head>
-
 <style>
-    .divcontainer{
-        background-color: lightblue;
-        height: 2rem;
-        border: 0.5px rgb(108, 138, 148);
-        width: 50rem;
-        margin-top: 7rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    *{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+  }
+  body {
+    width: auto;
+    height: 100vh;
+    background-color: white;
+  }
+  
+  .logo{
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 100;
+    margin: 3rem 0rem 1rem 3rem;
+  }
+  
+  .signUpBox{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .signUpLeft{
+    background-color: darkorchid;
+    width: 40%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .headingSignUp{
+    color: white;
+    font-size: 5rem;
+    margin: 3rem 0rem 1rem 3rem;
+  }
+  
+  .signUpRight{
+    background-color: white;
+    width:60%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  
+  .signUpHeading{
+    color: black;
+    font-size: 2rem;
+  }
+  
+  form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 32vh;
+    width: 56vh;
+    /* background-color: darkorchid; */
+    padding: 2rem 0rem 0rem 0rem;
+    margin: 1.5rem 0rem 0rem 0rem;
+  }
+  
+  .fieldBlockE{
+    margin: 0rem 0rem 2rem 0rem;
+  }
+  
+  .fieldBlockP{
+    margin: 2rem 0rem 1rem 0rem;
+  }
+  
+  label{
+    color: black;
+    font-size: 1rem;
+    margin: 0rem 0rem 2rem 0rem;
+  }
+  
+  input{
+    width: 50vh;
+    height: 7vh;
+    background-color: #BABABA;
+    border-radius: 0.5rem;
+    border: none;
+  }
+  
+  .googleSignUp{
+    height: 7vh;
+    width: 20vh;
+    border-radius: 0.5rem;
+    border: 0rem;
+    background-color: darkorchid;
+    color: white;
+    font-size: 1rem;
+  }
+  
+  .googleSignUp:hover{
+    background-color: rgb(127, 42, 170);
+  }
+  
+  
+  .googleSignUp{
+    width: 50vh;
+    height: 7vh;
+    background-color: #0086E7;
+    border-radius: 0.5rem;
+    margin: 6rem 0rem 0rem 0rem;
+    color: white;
+  }
+  
+  .googleSignUp:hover{
+    background-color: #0071c2;
+  }
+  
+  /* -----DashBoard---------- */
+  
+  #dashHead{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 142vh;
+    height: 10vh;
+  }
+  
+  #logo1{
+    /* margin: 3rem 3rem 3rem 0rem; */
+    width: 12vh;
+    height: 7vh;
+    color: black;
+    padding: 1rem;
+    font-size: larger;
+  }
+  
+  #profile{
+    /* margin: 3rem 3rem 3rem 0rem; */
+    width: 9vh;
+    height: 7vh;
+    color: black;
+    padding: 1rem;
+  }
+  
+  .add-mail{
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    top: 10rem;
+    right: 5rem;
+    width: 6rem;
+    background-color: limegreen;
+    text-align: center;
+    padding: 0.3rem 2rem 0.3rem 0rem;
+    color: white;
+    font-size: 1rem;
+    border: 0px;
+  }
+
+  .add-mail:hover{
+      background-color: rgb(38, 150, 38);
+  }
+  
+  /* ----Lists---- */
+  
+  .ul-div{
+    display: flex;
+    flex-wrap: wrap;
+    width: auto;
+    margin: 0.5rem;
+  }
+  
+  .list-group{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0rem 0rem 0rem;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    width: auto;
+  }
+  
+  .list-group-item{
+    width: 55rem;
+    height: 5vh;
+    background-color: rgb(161, 161, 161);
+    margin: 1rem;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+  }
+  
+  .tab-section{
+    display: flex;
+    flex-direction: row;
+    transform: rotate(90deg);
+    width: 24vh;
+    height: 0rem;
+    position: fixed;
+    top: 50%;
+    left: -2rem;
+  }
+  
+  .tab{
+    background-color: tomato;
+    color: white;
+    font-size: larger;
+    text-align: center;
+    width: 12vh;
+    height: 6vh;
+    padding: 1rem;
+  }
+
+  .body-dash{
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+  }
+
+  @media only screen and (max-width: 360px) {
+    .list-group-item{
+      width: 19rem;
     }
 
-    body{
-        background-color: rgb(209, 242, 253);
-        display: flex; 
-        justify-content: flex-end;
+    #dashHead{
+        width: 360px;
+        height: auto;
     }
+
+    #logo1{
+    padding: 5px;
+    text-align: center;
+    width: 90px;
+    margin: 5px 0px 5px 0px;
+    }
+
+    #profile{
+    padding: 5px;
+    text-align: center;
+    margin: 5px 0px 5px 0px;
+    }
+
+    .add-mail{
+        position: fixed;
+    top: 35rem;
+    left: 21px;
+    height: 27px;
+    }
+}
+
+  @media only screen and (min-width: 400px) and (max-width:1010px) {
+      .list-group-item{
+        width: 22rem;
+      }
+
+    #dashHead{
+        width: 50vh;
+    }
+
+    #logo1{
+        padding: 10px;
+        text-align: center;
+        width: 90px;
+        margin: 5px 0px 5px 0px;
+    }
+
+    #profile{
+        padding: 10px;
+        text-align: center;
+        margin: 5px 0px 5px 0px;
+        }
+
+    .add-mail{
+        position: fixed;
+    top: 35rem;
+    left: 21px;
+    height: 27px;
+    }
+  }
 </style>
-
-<body>
-    <div class="container">
-        {% for i in message %}
-        <div class="divcontainer">
-            <p> {{ i }}</p>
-        </div>
-
-        {% endfor %}
+<body class="body-dash">
+    <div id="dashHead">
+        <div id="logo1">Mailinator</div>
+        <div id="profile">Profile</div>
     </div>
-
+    <button type="button" class="add-mail" onclick="location.href='/send'"> New</button>
+    <div class="ul-div">
+        <ul class='list-group'>
+            {% for i in message %}
+            <li class='list-group-item'>
+                {{ i }}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
 </body>
 </html>
