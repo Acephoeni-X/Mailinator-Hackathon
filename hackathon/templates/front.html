@@ -1,21 +1,13 @@
 <!DOCTYPE html>
-{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Front Page</title>
+    <title>Mailinator</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
-        body{
-            height: 100vh;
-            width: auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
         .button{
             padding: 0.5rem;
         }
@@ -25,22 +17,270 @@
         .spinner1{
             display: none;
         }
+        *{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+  }
+  body {
+    width: auto;
+    height: 100vh;
+    background-color: antiquewhite;
+  }
+  
+  .logo{
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 100;
+    margin: 3rem 0rem 1rem 3rem;
+  }
+  
+  .signUpBox{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .signUpLeft{
+    background-color: darkorchid;
+    width: 40%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .headingSignUp{
+    color: white;
+    font-size: 5rem;
+    margin: 3rem 0rem 1rem 3rem;
+  }
+  
+  
+  /* --------Right----------- */
+  
+  .signUpRight{
+    background-color: white;
+    width:60%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  
+  .signUpHeading{
+    color: black;
+    font-size: 2rem;
+  }
+  
+  form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 32vh;
+    width: 56vh;
+    /* background-color: darkorchid; */
+    padding: 2rem 0rem 0rem 0rem;
+    margin: 1.5rem 0rem 0rem 0rem;
+  }
+  
+  .fieldBlockE{
+    margin: 0rem 0rem 2rem 0rem;
+  }
+  
+  .fieldBlockP{
+    margin: 2rem 0rem 1rem 0rem;
+  }
+  
+  label{
+    color: black;
+    font-size: 1rem;
+    margin: 0rem 0rem 2rem 0rem;
+  }
+  
+  input{
+    width: 50vh;
+    height: 7vh;
+    background-color: #BABABA;
+    border-radius: 0.5rem;
+    border: none;
+  }
+  
+  .googleSignUp{
+    height: 7vh;
+    width: 20vh;
+    border-radius: 0.5rem;
+    border: 0rem;
+    background-color: darkorchid;
+    color: white;
+    font-size: 1rem;
+  }
+  
+  .googleSignUp:hover{
+    background-color: rgb(127, 42, 170);
+  }
+  
+  /* hr{
+    width: 8rem;
+    margin: 1rem 0rem 1rem 0rem;
+    border: 0.5px solid black;
+  } */
+  
+  .googleSignUp{
+    width: 50vh;
+    height: 7vh;
+    background-color: #0086E7;
+    border-radius: 0.5rem;
+    margin: 6rem 0rem 0rem 0rem;
+    color: white;
+  }
+  
+  .googleSignUp:hover{
+    background-color: #0071c2;
+  }
+  
+  /* -----DashBoard---------- */
+  
+  .dashHead{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 20vh;
+    height: 10vh;
+    background-color: blueviolet;
+  }
+  
+  .logo1{
+    /* margin: 3rem 3rem 3rem 0rem; */
+    width: 10vh;
+    height: 5vh;
+    background-color: #0086E7;
+  }
+  
+  .profile{
+    /* margin: 3rem 3rem 3rem 0rem; */
+    width: 10vh;
+    height: 5vh;
+    background-color: #0086E7;
+  }
+  
+  .add-mail{
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    top: 10rem;
+    right: 11rem;
+    width: 6rem;
+    background-color: limegreen;
+    text-align: center;
+    padding: 0.3rem 2rem 0.3rem 0rem;
+    color: white;
+    font-size: 1rem;
+  }
+  
+  /* ----Lists---- */
+  
+  .ul-div{
+    display: flex;
+    flex-wrap: wrap;
+    width: auto;
+    margin: 1rem;
+  }
+  
+  .list-group{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 7rem 0rem 0rem 0rem;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    width: auto;
+  }
+  
+  .list-group-item{
+    width: auto;
+    height: 5vh;
+    background-color: white;
+    margin: 1rem;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .tab-section{
+    display: flex;
+    flex-direction: row;
+    transform: rotate(90deg);
+    width: 24vh;
+    height: 0rem;
+    position: fixed;
+    top: 50%;
+    left: -2rem;
+  }
+  
+  .tab{
+    background-color: tomato;
+    color: white;
+    font-size: larger;
+    text-align: center;
+    width: 12vh;
+    height: 6vh;
+    padding: 1rem;
+  }
+
+  .body-dash{
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+  }
+
+  @media only screen and (max-width: 360px) {
+    .list-group-item{
+      width: 19rem;
+    }
+}
+
+  @media only screen and (min-width: 400px) {
+      .list-group-item{
+        width: 22rem;
+      }
+
+      .dashHead{
+        width: 2rem;
+    }
+  }
+  
     </style>
-    <script src="{% static 'main.js' %}"></script>
 </head>
 <body>
     <div id="spinner1" class="no-display">
         <div class="spinner-grow" role="status"></div>
-        <span>Fetching Your Mails...</span>
+        <span class="fetch">Fetching Your Mails...</span>
     </div>
-    <button id="list" class="button" onclick="location.href='/form'; loading()">Login Using Google</button>
-    <script>
-        const spinner = document.getElementById('spinner1');
-        const lsit = document.getElementById('list');
-            function loading(){
-                spinner.classList.remove('no-display');
-                lsit.classList.add('no-display');
-            }
-    </script>
+        <section class="signUpBox">
+        <div class = "signUpLeft">
+            <div class="logo">Mailinator</div>
+            <div class="headingSignUp">Gives Your Bussiness a Boost</div>
+        </div>
+        <div class = "signUpRight">
+            <div class="signUpHeading">
+            Sign Up to Mailinator
+            </div>
+            <button id="list" class="button googleSignUp" onclick="location.href='/form'; loading()">Login Using Google</button>
+        </div>
+        </section>
+        
 </body>
+<script>
+    const spinner = document.getElementById('spinner1');
+    const lsit = document.getElementById('list');
+    const ad = document.querySelector('.signUpHeading');
+        function loading(){
+            spinner.classList.remove('no-display');
+            lsit.classList.add('no-display');
+            ad.innerHTML = "Please Wait While We Fetch Your Emails...";
+        }
+</script>
 </html>

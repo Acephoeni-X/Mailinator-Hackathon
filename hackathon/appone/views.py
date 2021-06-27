@@ -27,13 +27,14 @@ def write_json(data, filename='data.json'):
     with open (filename, 'w+') as f:
         json.dump(data, f, indent=4)
 
-def createJSON(userMail, to_email, message, subject, time):
+def createJSON(userMail, to_email, message, subject, time, day):
     jsON = {
                 "sender": userMail, 
-                "to":to_email,
+                "to": to_email,
                 "message": message,
                 "subject": subject,
-                "time":time
+                "time":time,
+                "day" : day
             }
     with open ('data.json') as json_file:
         data = json.load(json_file)
@@ -50,13 +51,16 @@ def email(requests):
             to_email = form.cleaned_data['to_email']
             message = form.cleaned_data['message']
             subject = form.cleaned_data['subject']
-            time = form.cleaned_data['time']
+            hour = form.cleaned_data['hr']
+            mint = form.cleaned_data['mint']
+            sec = form.cleaned_data['sec']
+            day = requests.POST['value']
+            time = f'{hour}:{mint}:{sec}'
             userMail = getUserProfile()
             sendmail.sendMail(to_email, subject, message)
-            createJSON(userMail, to_email, message, subject, time)
-            os.rename('token_gmail_v1.pickle', f'{to_email}.pickle')
+            createJSON(userMail, to_email, message, subject, time, day)
+            os.rename('token_gmail_v1.pickle', f'{userMail}.pickle')
             return HttpResponse('DONE')
-            
 
     return render(requests, 'send_email.html', {'form':name})
 
@@ -84,7 +88,6 @@ def service_return():
         with open(f'Tokens/{username}.json', 'w') as token:
             token.write(creds.to_json())
 
-    
     return service
 
 def main():

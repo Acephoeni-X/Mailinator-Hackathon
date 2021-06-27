@@ -3,24 +3,10 @@
         {
             "sender": "rishi.d.goku@gmail.com",
             "to": "sharma.rishix02@gmail.com",
-            "message": "Final test",
-            "subject": "hello",
-            "time": "4:00"
-        },
-        {
-            "sender": "rishi.d.goku@gmail.com",
-            "to": "sharma.rishix02@gmail.com",
-            "message": "Dhar bhosdika",
-            "subject": "skldnalsdnasd",
-            "time": "14:28"
-        },
-        {
-            "12:00": {
-                "sender": "rishi.d.goku@gmail.com",
-                "to": "sharma.rishix02@gmail.com",
-                "message": "daslhdaisda",
-                "subject": "THis is rishi"
-            }
+            "message": "Heloo level",
+            "subject": "Rishi",
+            "time": "19:31:00",
+            "day": "Sunday"
         }
     ]
 }

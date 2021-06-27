@@ -1,24 +1,40 @@
 <!DOCTYPE html>
-{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
+    <title>inbox</title>
 </head>
+
+<style>
+    .divcontainer{
+        background-color: lightblue;
+        height: 2rem;
+        border: 0.5px rgb(108, 138, 148);
+        width: 50rem;
+        margin-top: 7rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    body{
+        background-color: rgb(209, 242, 253);
+        display: flex; 
+        justify-content: flex-end;
+    }
+</style>
+
 <body>
+    <div class="container">
+        {% for i in message %}
+        <div class="divcontainer">
+            <p> {{ i }}</p>
+        </div>
 
-    <div id="list">
-        <h1>Hello</h1>
-            {% for i in message %}
-             <p>
-                 {{ i }}
-             </p>
-            {% endfor %}
+        {% endfor %}
     </div>
-
 
 </body>
 </html>
